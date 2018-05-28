@@ -25,8 +25,14 @@ class CakesList extends Component {
   render() {
     return (
       <div>
-        {this.state.cakes.map(function(cake) {
-          return <p>{cake.title}</p>;
+        {this.state.cakes.map(cake => {
+          return (
+            <div>
+              {/* <h1>{this.props.cake.title}</h1>
+              <img src={this.props.cake.image} /> */}
+              {/* <p>{this.props.cake.desc}</p> */}
+            </div>
+          );
         })}
       </div>
     );
