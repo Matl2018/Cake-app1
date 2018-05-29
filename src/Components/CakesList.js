@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Cake from "./Cake";
 class CakesList extends Component {
   constructor() {
     super();
@@ -27,11 +27,7 @@ class CakesList extends Component {
       <div>
         {this.state.cakes.map(cake => {
           return (
-            <div>
-              {/* <h1>{this.props.cake.title}</h1>
-              <img src={this.props.cake.image} /> */}
-              {/* <p>{this.props.cake.desc}</p> */}
-            </div>
+            <Cake title={cake.title} image={cake.image} desc={cake.desc} />
           );
         })}
       </div>
