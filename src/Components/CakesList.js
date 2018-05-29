@@ -42,7 +42,7 @@ class CakesList extends Component {
           return (
             <div>
               <Cake key={index} {...cake} />
-              // title={cake.title} image={cake.image} desc={cake.desc}
+              {/* title={cake.title} image={cake.image} desc={cake.desc} */}
             </div>
           );
         })}
