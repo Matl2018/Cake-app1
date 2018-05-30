@@ -6,9 +6,8 @@ const Search = props => {
       <input
         type="text"
         placeholder="Type to search cakes "
-        onChange={this.onChange}
+        onChange={props.onInputChange}
       />
-      <button> click to search </button>
     </div>
   );
 };

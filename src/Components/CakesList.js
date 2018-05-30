@@ -6,7 +6,8 @@ class CakesList extends Component {
   constructor() {
     super();
     this.state = {
-      cakes: []
+      cakes: [],
+      cakesDisplayed: []
     };
   }
 
@@ -18,30 +19,31 @@ class CakesList extends Component {
         return data.json();
       })
       .then(ServerCakes => {
-        return this.setState({ cakes: ServerCakes });
+        return this.setState({
+          cakes: ServerCakes,
+          cakesDisplayed: ServerCakes
+        });
       });
   }
-  filterCakes = input => {
+
+  filterCakes = event => {
+    const value = event.target.value;
     const filteredCakes = this.state.cakes.filter(cake => {
-      return cake.includes(input);
+      return cake.title.includes(value);
     });
     this.setState({
-      cakes: filteredCakes
+      cakesDisplayed: filteredCakes
     });
-  };
-  onChange = event => {
-    const inputValue = event.target.value;
-    return this.filterCakes(inputValue);
   };
 
   render() {
     return (
-      <div>
-        <Search onChange={this.onChange} />
-        {this.state.cakes.map((cake, index) => {
+      <div className="cakes">
+        <Search onInputChange={this.filterCakes} />
+        {this.state.cakesDisplayed.map((cake, index) => {
           return (
-            <div>
-              <Cake key={index} {...cake} />
+            <div key={index}>
+              <Cake {...cake} />
               {/* title={cake.title} image={cake.image} desc={cake.desc} */}
             </div>
           );
