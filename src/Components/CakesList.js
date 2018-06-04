@@ -29,7 +29,7 @@ class CakesList extends Component {
   filterCakes = event => {
     const value = event.target.value;
     const filteredCakes = this.state.cakes.filter(cake => {
-      return cake.title.includes(value);
+      return cake.title.search(new RegExp(value, "i")) > -1;
     });
     this.setState({
       cakesDisplayed: filteredCakes
